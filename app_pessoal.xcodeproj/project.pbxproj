@@ -15,6 +15,17 @@
 		72DE7E872C32E22600FB642C /* app_pessoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7E862C32E22600FB642C /* app_pessoalTests.swift */; };
 		72DE7E912C32E22600FB642C /* app_pessoalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7E902C32E22600FB642C /* app_pessoalUITests.swift */; };
 		72DE7E932C32E22600FB642C /* app_pessoalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7E922C32E22600FB642C /* app_pessoalUITestsLaunchTests.swift */; };
+		72DE7EA12C32F3C200FB642C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EA02C32F3C200FB642C /* CodeView.swift */; };
+		72DE7EA32C32F3EC00FB642C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EA22C32F3EC00FB642C /* Coordinator.swift */; };
+		72DE7EA62C32F41100FB642C /* MainCoordinar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EA52C32F41100FB642C /* MainCoordinar.swift */; };
+		72DE7EA92C32F43500FB642C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EA82C32F43500FB642C /* LoginView.swift */; };
+		72DE7EAB2C32F45600FB642C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EAA2C32F45600FB642C /* LoginViewController.swift */; };
+		72DE7EAF2C32F4BE00FB642C /* CButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EAE2C32F4BE00FB642C /* CButton.swift */; };
+		72DE7EB22C33232D00FB642C /* CLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EB12C33232D00FB642C /* CLabel.swift */; };
+		72DE7EB62C34746F00FB642C /* CTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EB52C34746F00FB642C /* CTextField.swift */; };
+		72DE7EBB2C34815900FB642C /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EBA2C34815900FB642C /* StartView.swift */; };
+		72DE7EBD2C34817000FB642C /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EBC2C34817000FB642C /* StartViewController.swift */; };
+		72DE7EBF2C34DCB200FB642C /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE7EBE2C34DCB200FB642C /* LargeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +58,17 @@
 		72DE7E8C2C32E22600FB642C /* app_pessoalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_pessoalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72DE7E902C32E22600FB642C /* app_pessoalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = app_pessoalUITests.swift; sourceTree = "<group>"; };
 		72DE7E922C32E22600FB642C /* app_pessoalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = app_pessoalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		72DE7EA02C32F3C200FB642C /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		72DE7EA22C32F3EC00FB642C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		72DE7EA52C32F41100FB642C /* MainCoordinar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinar.swift; sourceTree = "<group>"; };
+		72DE7EA82C32F43500FB642C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		72DE7EAA2C32F45600FB642C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		72DE7EAE2C32F4BE00FB642C /* CButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButton.swift; sourceTree = "<group>"; };
+		72DE7EB12C33232D00FB642C /* CLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLabel.swift; sourceTree = "<group>"; };
+		72DE7EB52C34746F00FB642C /* CTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextField.swift; sourceTree = "<group>"; };
+		72DE7EBA2C34815900FB642C /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		72DE7EBC2C34817000FB642C /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		72DE7EBE2C34DCB200FB642C /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +119,10 @@
 		72DE7E6E2C32E22200FB642C /* app_pessoal */ = {
 			isa = PBXGroup;
 			children = (
+				72DE7EAC2C32F4A000FB642C /* Component */,
+				72DE7EA72C32F42500FB642C /* Login */,
+				72DE7EA42C32F3FF00FB642C /* Coordinator */,
+				72DE7E9F2C32F3B300FB642C /* Protocol */,
 				72DE7E6F2C32E22200FB642C /* AppDelegate.swift */,
 				72DE7E712C32E22200FB642C /* SceneDelegate.swift */,
 				72DE7E732C32E22200FB642C /* ViewController.swift */,
@@ -122,6 +148,93 @@
 				72DE7E922C32E22600FB642C /* app_pessoalUITestsLaunchTests.swift */,
 			);
 			path = app_pessoalUITests;
+			sourceTree = "<group>";
+		};
+		72DE7E9F2C32F3B300FB642C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				72DE7EA02C32F3C200FB642C /* CodeView.swift */,
+				72DE7EA22C32F3EC00FB642C /* Coordinator.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		72DE7EA42C32F3FF00FB642C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				72DE7EA52C32F41100FB642C /* MainCoordinar.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		72DE7EA72C32F42500FB642C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				72DE7EB72C3480D000FB642C /* Start */,
+				72DE7EB82C3480DF00FB642C /* Signin */,
+				72DE7EB92C34811B00FB642C /* Signup */,
+				72DE7EA82C32F43500FB642C /* LoginView.swift */,
+				72DE7EAA2C32F45600FB642C /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		72DE7EAC2C32F4A000FB642C /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				72DE7EB32C34743700FB642C /* TextField */,
+				72DE7EB02C3322F500FB642C /* Label */,
+				72DE7EAD2C32F4A700FB642C /* Button */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		72DE7EAD2C32F4A700FB642C /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				72DE7EAE2C32F4BE00FB642C /* CButton.swift */,
+				72DE7EBE2C34DCB200FB642C /* LargeButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		72DE7EB02C3322F500FB642C /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				72DE7EB12C33232D00FB642C /* CLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		72DE7EB32C34743700FB642C /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				72DE7EB52C34746F00FB642C /* CTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		72DE7EB72C3480D000FB642C /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				72DE7EBA2C34815900FB642C /* StartView.swift */,
+				72DE7EBC2C34817000FB642C /* StartViewController.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		72DE7EB82C3480DF00FB642C /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Signin;
+			sourceTree = "<group>";
+		};
+		72DE7EB92C34811B00FB642C /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Signup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +367,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DE7EB22C33232D00FB642C /* CLabel.swift in Sources */,
 				72DE7E742C32E22200FB642C /* ViewController.swift in Sources */,
+				72DE7EA92C32F43500FB642C /* LoginView.swift in Sources */,
+				72DE7EBB2C34815900FB642C /* StartView.swift in Sources */,
 				72DE7E702C32E22200FB642C /* AppDelegate.swift in Sources */,
+				72DE7EA62C32F41100FB642C /* MainCoordinar.swift in Sources */,
+				72DE7EA32C32F3EC00FB642C /* Coordinator.swift in Sources */,
+				72DE7EAB2C32F45600FB642C /* LoginViewController.swift in Sources */,
+				72DE7EBD2C34817000FB642C /* StartViewController.swift in Sources */,
 				72DE7E722C32E22200FB642C /* SceneDelegate.swift in Sources */,
+				72DE7EA12C32F3C200FB642C /* CodeView.swift in Sources */,
+				72DE7EBF2C34DCB200FB642C /* LargeButton.swift in Sources */,
+				72DE7EB62C34746F00FB642C /* CTextField.swift in Sources */,
+				72DE7EAF2C32F4BE00FB642C /* CButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
