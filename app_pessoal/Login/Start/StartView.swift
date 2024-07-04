@@ -60,21 +60,38 @@ class StartView: UIView, CodeView {
         titleB: "Apple"
     )
 
-
     //falta fazer a linha do or e criar o botao, logo apos comecar a fazer a parte do login e a integracao com o authenticator do firebase
-    lazy var spaceView: UIView = {
+    lazy var lineLView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
+    }()
+    lazy var lineRView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
         return view
     }()
 
     lazy var spaceStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
+        stack.axis = .horizontal
         stack.distribution = .equalCentering
         stack.spacing = 4
         return stack
+    }()
+
+    lazy var textLineLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Ou"
+        label.textColor = UIColor.black
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textAlignment = .center
+
+        return label
     }()
 
 
@@ -95,9 +112,14 @@ class StartView: UIView, CodeView {
         addSubview(contentLoginView)
 
         contentLoginView.addSubview(contentLoginStackView)
-        
+        contentLoginView.addSubview(spaceStackView)
+
         contentLoginStackView.addArrangedSubview(googleButton)
         contentLoginStackView.addArrangedSubview(appleButton)
+
+        spaceStackView.addArrangedSubview(lineLView)
+        spaceStackView.addArrangedSubview(textLineLabel)
+        spaceStackView.addArrangedSubview(lineRView)
 
     }
 
@@ -113,7 +135,6 @@ class StartView: UIView, CodeView {
             contentLoginView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 
             contentLoginStackView.topAnchor.constraint(equalTo: contentLoginView.topAnchor),
-            contentLoginStackView.bottomAnchor.constraint(equalTo: contentLoginView.bottomAnchor),
             contentLoginStackView.leadingAnchor.constraint(equalTo: contentLoginView.leadingAnchor),
             contentLoginStackView.trailingAnchor.constraint(equalTo: contentLoginView.trailingAnchor),
 
@@ -127,7 +148,14 @@ class StartView: UIView, CodeView {
             appleButton.trailingAnchor.constraint(equalTo: contentLoginStackView.trailingAnchor, constant: -16),
             appleButton.heightAnchor.constraint(equalToConstant: 50),
 
+            spaceStackView.topAnchor.constraint(equalTo: appleButton.bottomAnchor, constant: 16),
+            spaceStackView.bottomAnchor.constraint(equalTo: contentLoginStackView.bottomAnchor, constant: -32),
+            spaceStackView.leadingAnchor.constraint(equalTo: contentLoginStackView.leadingAnchor),
+            spaceStackView.trailingAnchor.constraint(equalTo: contentLoginStackView.trailingAnchor),
 
+
+            lineLView.heightAnchor.constraint(equalToConstant: 1),
+            lineRView.heightAnchor.constraint(equalToConstant: 1),
         ])
     }
 
