@@ -12,7 +12,6 @@ class StartViewController: UIViewController {
     var startView = StartView()
 
     override func loadView() {
-//        self.startView = StartView()
         self.view = self.startView
     }
 
