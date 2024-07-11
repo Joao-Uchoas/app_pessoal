@@ -36,18 +36,24 @@ class LargeButton: UIButton {
     public var backgroundC = UIColor()
 
     // MARK: - Private Methods
+    private func setup(){
+        setupTitle()
+        setupConstraints()
+    }
+
     private func setupTitle() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setTitleColor(self.titleColor, for: .normal)
         self.setTitle(self.titleB, for: .normal)
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.lightGray.cgColor
-        self.layer.cornerRadius = 5
+        self.layer.borderColor = UIColor.gray.withAlphaComponent(0.6).cgColor
+        self.layer.cornerRadius = 25
         self.backgroundColor = self.backgroundC
     }
-
-    private func setup(){
-        setupTitle()
+    func setupConstraints() {
+        self.snp.makeConstraints { make in
+            make.height.equalTo(60)
+        }
     }
 
 }

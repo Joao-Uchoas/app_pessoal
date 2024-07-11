@@ -19,34 +19,38 @@ class StartView: UIView, CodeView {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Login"
         label.textColor = UIColor.black
-        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textAlignment = .center
         return label
     }()
 
+    lazy var imageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "eNotaMaster_logo")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
     lazy var contentLoginView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    lazy var contentLoginStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.distribution = .equalCentering
-        stack.spacing = 4
-        return stack
+    lazy var gradientView: UIView = {
+        let view = UIView()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.3, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.3, y: 1.0)
+        view.layer.addSublayer(gradientLayer)
+        gradientLayer.frame = self.bounds
+        return view
     }()
 
-    let gradientLayer = CAGradientLayer()
-
-    lazy var plataformsStackView: UIStackView = {
+    //Botões das plataformas Apple e Google
+    lazy var platformsStackView: UIStackView = {
         let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = 4
 
@@ -60,45 +64,71 @@ class StartView: UIView, CodeView {
         titleB: "Apple"
     )
 
-    //falta fazer a linha do or e criar o botao, logo apos comecar a fazer a parte do login e a integracao com o authenticator do firebase
-    lazy var lineLView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .red
-        return view
-    }()
-    lazy var lineRView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .red
-        return view
-    }()
+    lazy var signInButton = LargeButton(
+        titleB: "Password",
+        backgroundC: UIColor(red: 213/255, green: 220/255, blue: 220/255, alpha: 1.0)
+    )
+
+    // Espaço stack view com linha e texto
+    lazy var leftGradientLineView = createLeftGradientLineView()
+    lazy var rightGradientLineView = createRightGradientLineView()
 
     lazy var spaceStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
+        let stack = UIStackView(arrangedSubviews: [
+            leftGradientLineView,
+            textLineLabel,
+            rightGradientLineView
+        ])
+        
         stack.axis = .horizontal
-        stack.distribution = .equalCentering
-        stack.spacing = 4
+        stack.alignment = .center
+        stack.distribution = .fill
+        stack.spacing = 2
         return stack
     }()
 
     lazy var textLineLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Ou"
         label.textColor = UIColor.black
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 12)
         label.textAlignment = .center
-
         return label
+    }()
+
+    //texto e um botao para sign up
+    lazy var textSignUpLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Você não tem uma conta?"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .white
+        label.textAlignment = .right
+        return label
+    }()
+
+    lazy var textButtonSignUpLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Cadastre-se"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = UIColor(red: 213/255, green: 220/255, blue: 220/255, alpha: 1.0)
+        label.textAlignment = .left
+        return label
+    }()
+
+    lazy var signUpStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [textSignUpLabel, textButtonSignUpLabel])
+        stack.axis = .horizontal
+        stack.alignment = .center
+        stack.distribution = .fill
+        stack.spacing = 4
+        return stack
     }()
 
 
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(red: 105/255, green: 105/255, blue: 105/255, alpha: 1.0)
+        backgroundColor = UIColor(red: 223/255, green: 230/255, blue: 230/255, alpha: 1.0)
         setupViewCode()
     }
 
@@ -109,66 +139,122 @@ class StartView: UIView, CodeView {
     // MARK: - CodeView
     func buildViewHierarchy() {
         addSubview(titleLabel)
+        addSubview(imageView)
+        addSubview(gradientView)
         addSubview(contentLoginView)
 
-        contentLoginView.addSubview(contentLoginStackView)
+        contentLoginView.addSubview(platformsStackView)
         contentLoginView.addSubview(spaceStackView)
+        contentLoginView.addSubview(signInButton)
+        contentLoginView.addSubview(signUpStackView)
 
-        contentLoginStackView.addArrangedSubview(googleButton)
-        contentLoginStackView.addArrangedSubview(appleButton)
-
-        spaceStackView.addArrangedSubview(lineLView)
-        spaceStackView.addArrangedSubview(textLineLabel)
-        spaceStackView.addArrangedSubview(lineRView)
-
+        platformsStackView.addArrangedSubview(googleButton)
+        platformsStackView.addArrangedSubview(appleButton)
     }
 
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-
-            contentLoginView.topAnchor.constraint(equalTo: self.centerYAnchor, constant: 32),
-            contentLoginView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            contentLoginView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            contentLoginView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-
-            contentLoginStackView.topAnchor.constraint(equalTo: contentLoginView.topAnchor),
-            contentLoginStackView.leadingAnchor.constraint(equalTo: contentLoginView.leadingAnchor),
-            contentLoginStackView.trailingAnchor.constraint(equalTo: contentLoginView.trailingAnchor),
-
-            googleButton.topAnchor.constraint(equalTo: contentLoginStackView.topAnchor),
-            googleButton.leadingAnchor.constraint(equalTo: contentLoginStackView.leadingAnchor, constant: 16),
-            googleButton.trailingAnchor.constraint(equalTo: contentLoginStackView.trailingAnchor, constant: -16),
-            googleButton.heightAnchor.constraint(equalToConstant: 50),
-
-            appleButton.topAnchor.constraint(equalTo: googleButton.bottomAnchor),
-            appleButton.leadingAnchor.constraint(equalTo: contentLoginStackView.leadingAnchor, constant: 16),
-            appleButton.trailingAnchor.constraint(equalTo: contentLoginStackView.trailingAnchor, constant: -16),
-            appleButton.heightAnchor.constraint(equalToConstant: 50),
-
-            spaceStackView.topAnchor.constraint(equalTo: appleButton.bottomAnchor, constant: 16),
-            spaceStackView.bottomAnchor.constraint(equalTo: contentLoginStackView.bottomAnchor, constant: -32),
-            spaceStackView.leadingAnchor.constraint(equalTo: contentLoginStackView.leadingAnchor),
-            spaceStackView.trailingAnchor.constraint(equalTo: contentLoginStackView.trailingAnchor),
-
-
-            lineLView.heightAnchor.constraint(equalToConstant: 1),
-            lineRView.heightAnchor.constraint(equalToConstant: 1),
-        ])
+        self.configTitleConstraints()
+        self.configImageConstraints()
+        self.gradientViewConstraints()
+        self.contentLoginConstraints()
+        self.configPlatformsConstraints()
+        self.configOrLineConstraints()
+        self.buttonPasswordConstraints()
+        self.textWithButtonConstraints()
     }
 
-    func setupAdditionalConfiguration() {
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
-        gradientLayer.frame = contentLoginView.bounds
-        contentLoginView.layer.addSublayer(gradientLayer)
-
+    private func configTitleConstraints() {
+        titleLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+        }
     }
+
+    private func configImageConstraints() {
+        imageView.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.bottom)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.bottom.equalTo(gradientView.snp.top)
+        }
+    }
+
+    private func gradientViewConstraints() {
+        gradientView.snp.makeConstraints { make in
+            make.top.equalTo(contentLoginView.snp.top)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+    }
+
+    private func contentLoginConstraints() {
+        contentLoginView.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.centerY).offset(70)
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+    }
+
+    private func configPlatformsConstraints(){
+        platformsStackView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+        }
+    }
+
+    private func configOrLineConstraints(){
+        spaceStackView.snp.makeConstraints { make in
+            make.top.equalTo(platformsStackView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(20)
+        }
+
+        leftGradientLineView.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.width.equalToSuperview().multipliedBy(0.45)
+        }
+
+        rightGradientLineView.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.width.equalToSuperview().multipliedBy(0.45)
+        }
+    }
+
+    private func buttonPasswordConstraints() {
+        signInButton.snp.makeConstraints { make in
+            make.top.equalTo(spaceStackView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+        }
+    }
+
+    private func textWithButtonConstraints() {
+        signUpStackView.snp.makeConstraints { make in
+            make.top.equalTo(signInButton.snp.bottom).offset(16)
+            make.centerX.equalToSuperview().offset(16)
+        }
+    }
+
+    func setupAdditionalConfiguration() {}
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        gradientLayer.frame = contentLoginView.bounds //Serve para atualizar o frame da camada de gradiente
+        // Atualiza o frame do gradiente na view do gradiente
+        if let gradientLayer = gradientView.layer.sublayers?.first as? CAGradientLayer {
+            gradientLayer.frame = gradientView.bounds
+        }
+    }
+
+    private func createLeftGradientLineView() -> UIView {
+        return GradientLine(startColor: UIColor.clear.cgColor, endColor: UIColor.white.cgColor)
+    }
+
+    private func createRightGradientLineView() -> UIView {
+        return GradientLine(startColor: UIColor.white.cgColor, endColor: UIColor.clear.cgColor)
     }
 
 }

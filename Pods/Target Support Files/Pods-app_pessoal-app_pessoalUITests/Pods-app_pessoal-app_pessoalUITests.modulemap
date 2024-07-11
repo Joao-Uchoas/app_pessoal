@@ -1,0 +1,6 @@
+framework module Pods_app_pessoal_app_pessoalUITests {
+  umbrella header "Pods-app_pessoal-app_pessoalUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

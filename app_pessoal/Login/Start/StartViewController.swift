@@ -8,16 +8,21 @@
 import UIKit
 
 class StartViewController: UIViewController {
-
-    var startView: StartView?
+    weak var coordinator: AuthCoordinator?
+    var startView = StartView()
 
     override func loadView() {
-        self.startView = StartView()
+//        self.startView = StartView()
         self.view = self.startView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        startView.signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
+    }
+
+    @objc func signInTapped() {
+        coordinator?.showSignIn()
     }
 
 }

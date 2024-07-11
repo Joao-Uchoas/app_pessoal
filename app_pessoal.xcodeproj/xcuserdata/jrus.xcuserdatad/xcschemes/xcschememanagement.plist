@@ -7,7 +7,25 @@
 		<key>app_pessoal.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>72DE7E6B2C32E22200FB642C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72DE7E812C32E22600FB642C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72DE7E8B2C32E22600FB642C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
