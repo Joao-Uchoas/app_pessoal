@@ -1,5 +1,5 @@
 //
-//  AuthCoordinator.swift
+//  StartCoordinator.swift
 //  app_pessoal
 //
 //  Created by Uchoas Santos, Joao Vitor on 10/07/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthCoordinator: MainCoordinator {
+class StartCoordinator: MainCoordinator {
 
     override func start() {
         let startViewController = StartViewController()
@@ -16,9 +16,9 @@ class AuthCoordinator: MainCoordinator {
     }
 
     func showSignIn() {
-        let signInViewController = SignInViewController()
-        signInViewController.coordinator = self
-        navigationController.pushViewController(signInViewController, animated: true)
+        let signViewModel = SignInViewModel()
+        signViewModel.coordinator = self
+        navigationController.pushViewController(signViewModel, animated: true)
     }
 
 }

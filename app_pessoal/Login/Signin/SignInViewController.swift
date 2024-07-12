@@ -8,16 +8,27 @@
 import UIKit
 
 class SignInViewController: UIViewController {
-    weak var coordinator: AuthCoordinator?
-    var sigInView = SignInView()
+    var signInView = SignInView()
+    var viewModel = SignInViewModel()
 
     override func loadView() {
-        self.view = sigInView
+        self.view = signInView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
+    }
+
+    @objc
+    private func didTapSignInButton() {
+        guard let email = signInView.emailTextField.text, !email.isEmpty,
+              let password = signInView.passwordTextField.text, !password.isEmpty else {
+            //ver uma forma de deixar a caixinha em vermelho, indicando que esta faltando algum campo
+            return
+        }
+        let model = SignInModel(email: email, password: password)
+        viewModel.signIn(with: model)
     }
 
 }
